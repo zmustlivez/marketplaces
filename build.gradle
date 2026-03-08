@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+group = 'sia'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter("5.10.0")
+
+            dependencies {
+                // Source: https://mvnrepository.com/artifact/com.codeborne/selenide
+                implementation("com.codeborne:selenide:7.13.0")
+                implementation("org.aeonbits.owner:owner:1.0.12")
+// Source: https://mvnrepository.com/artifact/commons-codec/commons-codec FOR СOMPARE IMAGES
+                implementation("commons-codec:commons-codec:1.21.0")
+//                        testImplementation platform('org.junit:junit-bom:5.10.0')
+                implementation("org.junit.jupiter:junit-jupiter")
+
+            }
+        }
+    }
+}
+/*
+dependencies {
+
+
+}
+
+test {
+    useJUnitPlatform()
+}*/
